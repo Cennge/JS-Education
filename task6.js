@@ -1,9 +1,17 @@
-let convertItem = parseFloat(prompt("Введите сумму в долларах: "));
-const dollEuro = 0.95;
+let amountUSD = prompt("Введите количество USD:");
 
-if(convertItem > 0){
-    alert(`Euro: ${convertItem*dollEuro}`);
-}
-else{
-    alert("Error")
+let currency = prompt("Введите валюту (EUR, UAN, AZN):").toUpperCase();
+
+const rateEUR = 0.95;
+const rateUAN = 36.8;
+const rateAZN = 1.7;
+
+if (currency === "EUR") {
+    alert(`Сумма: ${(amountUSD * rateEUR).toFixed(2)} EUR`);
+} else if (currency === "UAN") {
+    alert(`Сумма: ${(amountUSD * rateUAN).toFixed(2)} UAN`);
+} else if (currency === "AZN") {
+    alert(`Сумма: ${(amountUSD * rateAZN).toFixed(2)} AZN`);
+} else {
+    alert("Ошибка: выбранная валюта не поддерживается.");
 }

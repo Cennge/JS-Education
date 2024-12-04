@@ -1,13 +1,36 @@
-let number = parseInt(prompt("Введите трехзначное число:"));
+let score = 0;
 
-if (number >= 100 && number <= 999) {
-    let hundreds = Math.floor(number / 100); 
-    let tens = Math.floor((number % 100) / 10);
-    let ones = number % 10;
+let answer1 = prompt(
+    "Когда была создана корпорация 4epuha?\n" +
+    "1. 2022\n" +
+    "2. 2023\n" +
+    "3. 2024"
+);
 
-    let reversedNumber = (ones * 100) + (tens * 10) + hundreds;
-
-    alert(`Число ${number} задом наперед: ${reversedNumber}`);
-} else {
-    alert("Ошибка: Введите корректное трехзначное число!");
+if (answer1 === "2") {
+    score += 2; 
 }
+
+let answer2 = prompt(
+    "Чем изначально занималась 4epuha?\n" +
+    "1. Аутсорс\n" +
+    "2. Киберспорт\n" +
+    "3. Программирование"
+);
+
+if (answer2 === "2") {
+    score += 2;
+}
+
+let answer3 = prompt(
+    "Что 4epuha получила в награду после победы на дизайнотоне?\n" +
+    "1. 100 грн\n" +
+    "2. Ничего\n" +
+    "3. Автомат по предмету"
+);
+
+if (answer3 === "3") {
+    score += 2;
+}
+
+alert(`Вы набрали ${score} баллов из 6`);

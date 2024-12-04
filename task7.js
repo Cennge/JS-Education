@@ -1,11 +1,19 @@
-let flashDriveSizeGB = parseFloat(prompt("Введите объем флешки в Гб: "));
-const fileSizeMB = 820;
+let amount = parseFloat(prompt("Введите сумму покупки:"));
 
-let flashDriveSizeMB = flashDriveSizeGB * 1024;
+if (amount <= 0) {
+    alert("Ошибка");
+} else {
+    let discount = 0;
 
-if(flashDriveSizeGB > 0){
-     alert(`Количество файлов размером в 820мб : ${Math.floor(flashDriveSizeMB / fileSizeMB)}`);
-}
-else {
-    alert("Ошибка: Введите положительное число для объема флешки.");
+    if (amount >= 200 && amount < 300) {
+        discount = 3; 
+    } else if (amount >= 300 && amount < 500) {
+        discount = 5; 
+    } else if (amount >= 500) {
+        discount = 7;
+    }
+
+    let finalAmount = amount - (amount * discount / 100);
+
+    alert(`Сумма покупки: ${amount.toFixed(2)}\nСкидка: ${discount}%\nСумма к оплате: ${finalAmount.toFixed(2)}`);
 }

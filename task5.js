@@ -1,11 +1,11 @@
-let distance = parseFloat(prompt("Введите расстояние между городами (в км):"));
+let number = prompt("Введите пятизначное число:");
 
-let time = parseFloat(prompt("Введите время за которое вы хотите добраться (в часах):"));
-
-if (distance > 0 && time > 0) {
-    let speed = distance / time;
-    alert(`Вам нужно двигаться со скоростью ${speed.toFixed(2)} км/ч`);
-}
-else {
+if (number.length === 5) {
+    if (number[0] === number[4] && number[1] === number[3]) {
+        alert(`${number} является палиндромом`);
+    } else {
+        alert(`${number} не является палиндромом`);
+    }
+} else {
     alert("Ошибка");
 }

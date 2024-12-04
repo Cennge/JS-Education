@@ -1,12 +1,15 @@
-let walletAmount = parseFloat(prompt("Введите сумму денег в вашем кошельке:"));
+let circleLength = parseFloat(prompt("Введите длину окружности:"));
+let squarePerimeter = parseFloat(prompt("Введите периметр квадрата:"));
 
-let chocolatePrice = parseFloat(prompt("Введите цену одной шоколадки:"));
-
-if (walletAmount > 0 && chocolatePrice > 0) {
-    let chocolateCount = Math.floor(walletAmount / chocolatePrice);
-    let change = walletAmount - (chocolateCount * chocolatePrice);
-
-    alert(`Вы можете купить ${chocolateCount} шоколадок. Сдача: ${change.toFixed(2)} руб.`);
-} else {
+if (circleLength <= 0 || squarePerimeter <= 0) {
     alert("Ошибка");
+} else {
+    const radius = circleLength / (2 * Math.PI); 
+    const side = squarePerimeter / 4; 
+
+    if (radius * 2 <= side) {
+        alert("Окружность поместится в квадрат");
+    } else {
+        alert("Окружность не поместится в квадрат");
+    }
 }

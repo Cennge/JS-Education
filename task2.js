@@ -1,4 +1,18 @@
-let yearBorn = prompt("Введите год рождения: ");
-const currentYear = 2024;
+let number = prompt("Введите число от 0 до 9:");
 
-alert(`Вам ${currentYear-yearBorn} лет`);
+let symbols = {
+    "1": "!",
+    "2": "@",
+    "3": "#",
+    "4": "$",
+    "5": "%",
+    "6": "^",
+    "7": "&",
+    "8": "*",
+    "9": "(",
+    "0": ")"
+};
+
+let result = symbols[number] || "Ошибка: введите число от 0 до 9";
+
+alert(result);
