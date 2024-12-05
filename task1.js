@@ -1,11 +1,17 @@
-let age = parseInt(prompt("Введите ваш возраст:"));
+let Task1 = function(a,b)
+{
+    if (a<b) return -1;
+    else if(a>b) return 1;
+    else return 0;
+}
 
-let category = 
-    (age >= 0 && age <= 2) ? "Ребенок" :
-    (age > 2 && age <= 12) ? "Младший подросток" :
-    (age > 12 && age <= 18) ? "Подросток" :
-    (age > 18 && age <= 60) ? "Взрослый" :
-    (age > 60) ? "Пенсионер" :
-    "Ошибка: некорректный возраст";
+let Task1_1 = (a,b)=>
+{ 
+    if (a<b) return -1; 
+    else if(a>b) return 1;
+    else return 0;
+}
 
-alert(`Вы относитесь к категории: ${category}`);
+document.write(`Результат= ${ Task1_1(1,5)} <br/>`);
+document.write(`Результат = ${ Task1_1(5,1)} <br/>`);
+document.write(`Результат = ${ Task1_1(1,1)} <br/>`);

@@ -1,15 +1,5 @@
-let circleLength = parseFloat(prompt("Введите длину окружности:"));
-let squarePerimeter = parseFloat(prompt("Введите периметр квадрата:"));
-
-if (circleLength <= 0 || squarePerimeter <= 0) {
-    alert("Ошибка");
-} else {
-    const radius = circleLength / (2 * Math.PI); 
-    const side = squarePerimeter / 4; 
-
-    if (radius * 2 <= side) {
-        alert("Окружность поместится в квадрат");
-    } else {
-        alert("Окружность не поместится в квадрат");
-    }
+function timeToSeconds(hours, minutes, seconds) {
+    return hours * 3600 + minutes * 60 + seconds;
 }
+
+document.write(`Seconds: ${timeToSeconds(1, 30, 15)} <br/>`);

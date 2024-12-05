@@ -1,18 +1,8 @@
-let number = prompt("Введите число от 0 до 9:");
+let factorial = function(a){
+    if (a === 0 || a === 1) {
+        return 1;
+    }
+    return a * factorial(a - 1);
+}
 
-let symbols = {
-    "1": "!",
-    "2": "@",
-    "3": "#",
-    "4": "$",
-    "5": "%",
-    "6": "^",
-    "7": "&",
-    "8": "*",
-    "9": "(",
-    "0": ")"
-};
-
-let result = symbols[number] || "Ошибка: введите число от 0 до 9";
-
-alert(result);
+document.write(`Factorial of 5 = ${factorial(5)} <br/>`);
