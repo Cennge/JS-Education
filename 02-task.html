@@ -28,7 +28,7 @@
 
         let vButton = document.querySelector("#vBtn");
 
-        vButton.onclick = volume;
+        vButton.addEventListener("click", volume);
 
         function volume() {
             let radius = parseFloat(radiusInput.value);

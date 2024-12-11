@@ -61,6 +61,14 @@
             padding-left: 4px;
             width: 68%;
         }
+        .task button {
+            margin-left: auto; 
+            padding: 4px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -98,8 +106,17 @@
             let p = document.createElement("p");
             p.innerText = text;
 
+
+            let deleteBtn = document.createElement("button");
+            deleteBtn.innerText = "Удалить";
+            deleteBtn.addEventListener("click", function () {
+                div.remove();
+            });
+
+
             div.append(input);
             div.append(p);
+            div.append(deleteBtn);
 
             return div;
         }

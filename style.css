@@ -1,0 +1,12 @@
+.error {
+    color: red;
+    display: none;
+}
+
+.input-error {
+    border: 2px solid red;
+}
+
+.error-visible {
+    display: block;
+}
