@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 05</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #userList {
+            width: 200px;
+            display: inline-block;
+        }
+        #userList>li {
+            cursor: pointer;
+            list-style: none;
+        }
+
+        #userList>li:hover {
+            background-color: orange;
+        }
+
+        #output {
+            display: inline-block;
+            border:1px solid gray;
+            padding: 10px;
+            vertical-align: top;
+            margin-top: 20px;
+            width: 300px;
+            min-height: 180px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="userList">
+
+    </ul>
+
+    <div id="output"></div>
+    <script>
+        /*
+        Задание:
+        Доработайте сценарий.
+        Сделайте так, чтобы при наведении на имя пользователя в списке, в div#output отображались 
+        возраст (age)(добавить к каждому объекту!), баланс (balance), компания (company) и email данного пользователя
+        */
+
+        let users = [
+             {
+                name: {
+                    first: 'Golden',
+                    last: 'Clements',
+                    email: ' Clements@gmail.com'
+                    }
+            },
+            {
+                
+                name: {
+                    first: 'GoldenArea',
+                    last: 'Clements2',
+                    email: ' GoldenArea@gmail.com'
+                },
+           
+            },
+            {       
+                name: {
+                    first: 'Francis',
+                    last: 'Hebert',
+                     email: ' Francis@gmail.com'
+                },           
+            },
+            {                
+                name: {
+                    first: 'Hale',
+                    last: 'Cross',
+                    email: ' Cross@gmail.com'
+                },              
+            },
+            {               
+                name: {
+                    first: 'Delores',
+                    last: 'Sykes',
+                    email: ' Cross@gmail.com'
+                },            
+            },
+            {            
+                name: {
+                    first: 'Ryan',
+                    last: 'Bolton',
+                     email: ' Cross@gmail.com'
+                },
+          
+            },
+            {             
+                name: {
+                    first: 'Carey',
+                    last: 'Schwartz',
+                     email: ' Cross@gmail.com'
+                },
+            }
+  
+        ];
+
+        function mouseEnterHandler(e)
+        {
+           let li=document.getElementsByTagName("li");
+           ///alert(li[1].dataset.userNumber)
+        }
+        let uslerList = document.querySelector("#userList");
+
+        for (let index = 0; index < users.length; index++) {
+            const currentUser = users[index];
+
+            let li = document.createElement("li");
+            li.textContent = currentUser.name.first + " " + currentUser.name.last;
+            li.dataset.userNumber = index;
+            li.addEventListener("mouseenter", mouseEnterHandler);
+            uslerList.append(li);
+            
+
+            
+        }
+    </script>
+</body>
+
+</html>
