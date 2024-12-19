@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 01</title>
+    <style>
+        .form-group {
+            margin: 4px;
+        }
+
+        .form-group label {
+            width: 75px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div class="form-group">
+            <label>Логин</label>
+            <input type="text" name="login">
+            <span class="hint" id="loginHint">Ваш логин должен состоять не менее чем из 4 символов</span>
+        </div>
+        <div class="form-group">
+            <label>Пароль</label>
+            <input type="password" name="password">
+            <span class="hint" id="passwordHint">Пароль должен содержать буквы, цифры и специальный символ</span>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Зарегистрироваться">
+        </div>
+    </form>
+    <script>
+        /*
+        Задание:
+        1. При нажатии на кнопку "Зарегистрироваться" (не используя события click) выведите с помощью alert
+        информацию, которую ввел пользователь в поля login и password.
+        2. В момент, когда поле ввода login получает фокус, покажите подсказку, которая находится в span#loginHint
+           В момент, когда фокус получает поле ввода password - подсказку span#passwordHint
+        */
+        const form = document.querySelector('form');
+        const loginInput = form.querySelector('input[name="login"]');
+        const passwordInput = form.querySelector('input[name="password"]');
+        const loginHint = document.getElementById('loginHint');
+        const passwordHint = document.getElementById('passwordHint');
+
+        loginHint.style.display = "none";
+        passwordHint.style.display = "none";
+
+        loginInput.addEventListener("focus", function () {
+            loginHint.style.display = "inline";
+        });
+        loginInput.addEventListener("blur", function () {
+            loginHint.style.display = "none";
+        });
+
+        passwordInput.addEventListener("focus", function () {
+            passwordHint.style.display = "inline";
+        });
+        passwordInput.addEventListener("blur", function () {
+            passwordHint.style.display = "none";
+        });
+
+        form.addEventListener("submit", function(){
+            alert(loginInput.value);
+            alert(passwordInput.value);
+        });
+
+    </script>
+</body>
+
+</html>
