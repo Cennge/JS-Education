@@ -47,7 +47,7 @@
     <script>
         /*
         Задание:
-        Внесите следующие правки в код:
+        Внесите с��едующие правки в код:
         1)  Сделайте так, чтобы в Catalog, в метод add можно было добавлять только объекты, которые наследовались от класса CatalogItem
             Если вызывая метод add передается другой объект, через alert выводите сообщение "Данный метод принимает только классы производные от CatalogItem"
         2)  Добавьте класс ProductWithDiscount - задача класса выводить продукт со скидкой, которая была указана в конструкторе
@@ -100,6 +100,10 @@
             }
 
             add(item) {
+                if (!(item instanceof CatalogItem)) {
+                    alert("Данный метод принимает только классы производные от CatalogItem");
+                    return;
+                }
                 this.items.push(item);
             }
 
@@ -110,13 +114,32 @@
             }
         }
 
+        class ProductWithDiscount extends Product {
+            discount;
+            discountedPrice;
+
+            constructor(imagePath, price, discount) {
+                super(imagePath, price);
+                this.discount = discount;
+                this.discountedPrice = price - (price * (discount / 100));
+            }
+
+            renderIn(element) {
+                let html = Mustache.render(this.template, {
+                    imagePath: this.imagePath,
+                    price: `<s>${this.price}$</s> ${this.discountedPrice}$`
+                });
+                element.innerHTML += html;
+            }
+        }
+
         let catalog = new Catalog("#catalog");
 
         catalog.add(new Product("images/img1.jpg", 35.55));
         catalog.add(new Product("images/img2.jpg", 25.25));
         catalog.add(new Advertisement("images/banner1.jpg", "https://docs.google.com/presentation/d/1fnRSaayn4cy-sG9WtW4XWjXmfpKzhIoyk4L8iwk4J4U/edit#slide=id.g31f8f6f71b4_0_32"));
         catalog.add(new Product("images/img3.jpg", 14.55));
-        catalog.add(new Product("images/img4.jpg", 65.55));
+        catalog.add(new ProductWithDiscount("images/img4.jpg", 65.55, 20));
         catalog.add(new Advertisement("images/banner2.jpg", "https://docs.google.com/presentation/d/1fnRSaayn4cy-sG9WtW4XWjXmfpKzhIoyk4L8iwk4J4U/edit#slide=id.g31f8f6f71b4_0_32"));
 
         catalog.show();
