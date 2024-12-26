@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits</title>
+    <style>
+        .fruit {
+            width: 30%;
+            height: 200px;
+            margin: 10px;
+            display: inline-block;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+            font-weight: bold;
+        }
+        .red { background-color: red; }
+        .yellow { background-color: yellow; color: black; }
+        .orange { background-color: orange; }
+        .green { background-color: green; }
+        .highlight { box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5); }
+        
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        button { margin: 5px; }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button data-color="red">Красный</button>
+        <button data-color="yellow">Жёлтый</button>
+        <button data-color="orange">Оранжевый</button>
+        <button data-color="green">Зелёный</button>
+    </div>
+    <div class="fruit red" data-color="red">Яблоко</div>
+    <div class="fruit red" data-color="red">Гранат</div>
+    <div class="fruit yellow" data-color="yellow">Банан</div>
+    <div class="fruit yellow" data-color="yellow">Дыня</div>
+    <div class="fruit orange" data-color="orange">Апельсин</div>
+    <div class="fruit orange" data-color="orange">Мандарин</div>
+    <div class="fruit green" data-color="green">Киви</div>
+    <div class="fruit green" data-color="green">Груша</div>
+     <script>
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', () => {
+                let color = button.getAttribute('data-color');
+                document.querySelectorAll('.fruit').forEach(fruit => {
+                    if (fruit.getAttribute('data-color') === color) {
+                        fruit.classList.toggle('highlight');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
