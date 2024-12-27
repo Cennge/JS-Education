@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: rgb(107, 92, 107);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: white;
+      }
+
+      #star-container {
+        display: flex;
+        gap: 20px;
+        width: max-content;
+      }
+
+      h3,
+      span {
+        font-size: 4rem;
+      }
+
+      .selected {
+        color: rgb(255, 217, 49);
+      }
+
+      #star-list {
+        display: flex;
+      }
+
+      #star-list span {
+        cursor: pointer;
+      }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $("#star-list span").click(function () {
+          const stars = $("#star-list span");
+          stars.removeClass("selected");
+          stars.slice(0, stars.index(this) + 1).addClass("selected");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="star-container">
+      <h3>Star Rating:</h3>
+      <div id="star-list">
+        <span>★</span>
+        <span>★</span>
+        <span>★</span>
+        <span>★</span>
+        <span>★</span>
+      </div>
+    </div>
+  </body>
+</html>
