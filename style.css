@@ -1,45 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+  font-family:Arial, Helvetica, sans-serif;
+  padding: 2rem;
 }
-.form-container {
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+#parse {
+  margin-bottom: 20px;
 }
-.form-group {
-    margin-bottom: 10px;
+
+table {
+  border-collapse: collapse;
+  border: 2px solid gainsboro;
 }
-label {
-    display: block;
-    margin-bottom: 5px;
+
+tr {
+  border-bottom: 2px solid gainsboro;
 }
-input, select {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    margin-bottom: 10px;
+
+td,
+th {
+  background-color: rgb(255, 255, 238);
 }
-button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+
+td:nth-child(even) {
+  background-color: rgb(238, 250, 255);
 }
-button:hover {
-    background-color: #45a049;
+
+td,
+th {
+  padding: 1rem;
+  text-align: center;
 }
-.rectangle {
-    display: inline-block;
-    margin: 10px;
-    padding: 20px;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+.desc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

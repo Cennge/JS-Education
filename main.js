@@ -1,46 +1,33 @@
-class Rectangle {
-  constructor(width, height, name, fill, type, code) {
-    this.width = width;
-    this.height = height;
-    this.name = name;
-    this.fill = fill;
-    this.type = type;
-    this.code = code;
-  }
+const apiKey = 'd77e8a80bfcc7551c3135a39d716ce92';
+let table = document.querySelector("#weather");
+let btn = document.querySelector("#add");
+let city = document.querySelector("#textCity");
 
-  toString() {
-    return JSON.stringify(this);
-  }
+function addCity() {
+    if (!city.value) return;
+    table.removeAttribute("style");
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${apiKey}&units=metric&lang=uk`;
+    
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const { name, main, weather, sys } = data;
+            const tr = document.createElement("tr");
+            
+            tr.innerHTML = `
+                <td>${name}</td>
+                <td>${main.temp}°C</td>
+                <td>${main.feels_like}°C</td>
+                <td class="desc">
+                    <img src="https://openweathermap.org/img/wn/${weather[0].icon}.png">
+                    ${weather[0].description}
+                </td>
+                <td>${main.humidity}%</td>
+                <td>${new Date(sys.sunrise).toLocaleTimeString("uk-UA")}</td>
+            `;
+            
+            table.append(tr);
+        });
 }
 
-document.getElementById('save-button').addEventListener('click', () => {
-    const name = document.getElementById('color-name').value;
-    const type = document.getElementById('color-type').value;
-    const r = document.getElementById('color-code-r').value;
-    const g = document.getElementById('color-code-g').value;
-    const b = document.getElementById('color-code-b').value;
-
-    if (!name || r === "" || g === "" || b === "" || r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255) {
-        alert('incorrect values');
-        return;
-    }
-
-    const code = `${r},${g},${b}`;
-
-    const rectangle = new Rectangle(100, 50, name, true, type, code);
-
-    console.log(rectangle.toString());
-
-    const colorDisplay = document.getElementById('color-display');
-    const colorBox = document.createElement('div');
-    colorBox.className = 'rectangle';
-    colorBox.style.backgroundColor = `rgb(${code})`;
-    colorBox.textContent = `${name}\n${type}\n${code}`;
-    colorDisplay.appendChild(colorBox);
-
-    document.getElementById('color-name').value = '';
-    document.getElementById('color-code-r').value = '';
-    document.getElementById('color-code-g').value = '';
-    document.getElementById('color-code-b').value = '';
-});
-
+btn.addEventListener("click", addCity);

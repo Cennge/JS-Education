@@ -1,41 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rectangle Color Manager</title>
+    <title>Прогноз погоды</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    
-    <div class="form-container">
-        <h2>Create new color</h2>
-        <div class="form-group">
-            <label for="color-name">Color Name:</label>
-            <input type="text" id="color-name" placeholder="Enter color name">
-        </div>
-        <div class="form-group">
-            <label for="color-type">Type:</label>
-            <select id="color-type">
-                <option value="RGB">RGB</option>
-                <option value="RGBA">RGBA</option>
-                <option value="HEX">HEX</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>Code:</label>
-            <div class="rgb-inputs">
-                <input type="number" id="color-code-r" placeholder="R" min="0" max="255" required>
-                <input type="number" id="color-code-g" placeholder="G" min="0" max="255" required>
-                <input type="number" id="color-code-b" placeholder="B" min="0" max="255" required>
-            </div>
-        </div>
-        <button id="save-button">Save</button>
-    </div>
 
-    <h3>All colors</h3>
-    <div id="color-display"></div>
+<body>
+    <form action="parse" id="parse">
+        <label for="textCity">Название города</label>
+        <input type="text" name="textCity" id="textCity">
+        <button type="button" id="add">Добавить</button>
+    </form>
+    <table id="weather" style="display: none;">
+        <tr>
+            <th>Город</th>
+            <th>Температура</th>
+            <th>Ощущается как</th>
+            <th>Описание</th>
+            <th>Влажность</th>
+            <th>Рассвет</th>
+        </tr>
+    </table>
 
     <script src="main.js"></script>
 </body>
+
 </html>
