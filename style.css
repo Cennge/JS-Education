@@ -1,0 +1,47 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.1em;
+    text-align: center;
+    background: linear-gradient(45deg, #deffdd, #9ed69c, #a1c4fd, #c2e9fb);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s infinite alternate-reverse;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+h1 {
+    margin-top: 20px;
+}
+
+table {
+    width: 70%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);   
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 20px;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
